@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = texlive-core
+
+[Action]
+Description = Repair tlmgr perl script due to texlive-core updating...
+When = PostTransaction
+Exec = /usr/bin/sed -i 's/\$Master = "\$Master\/..\/..";/\$Master = "\$Master\/..\/..\/..";/' './file'
+
